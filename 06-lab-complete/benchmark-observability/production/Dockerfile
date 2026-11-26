@@ -27,6 +27,10 @@ USER agent
 
 ENV PATH=/home/agent/.local/bin:$PATH
 ENV PYTHONPATH=/app
+# Sửa lỗi: user agent có HOME=/app (useradd -d /app) nên Python tìm user site-packages ở
+# /app/.local, không thấy thư viện copy vào /home/agent/.local → "No module named 'uvicorn'".
+# Trỏ PYTHONUSERBASE về đúng chỗ (giống Dockerfile ở 05-scaling-reliability/production).
+ENV PYTHONUSERBASE=/home/agent/.local
 ENV PYTHONDONTWRITEBYTECODE=1
 ENV PYTHONUNBUFFERED=1
 
