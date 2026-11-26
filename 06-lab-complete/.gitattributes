@@ -1,0 +1,3 @@
+# Giữ LF cho mọi file text kể cả khi clone trên Windows (core.autocrlf=true):
+# Dockerfile, script shell, YAML chạy trong container Linux sẽ lỗi nếu bị đổi sang CRLF.
+* text=auto eol=lf
